@@ -6,40 +6,36 @@ import planes.Plane;
 
 import java.util.*;
 
-// Need use this format for information description
 /**
  * @author  Vitali Shulha
  * @version version: 1.1
  * @since   4-Jan-2019
  */
-// version: 1.1
-// made by Vitali Shulha
-// 4-Jan-2019
 
 public class Airport {
     private List<? extends Plane> planes;
-    // Error: many blank lines
-
 
     public List<PassengerPlane> getPasPl() {
-        // Error: l, x, p are unclear, no meaning -> suggest: l(planes), x passengerPlanes, p plane
-        List<? extends Plane> l = this.planes;
-        List<PassengerPlane> x = new ArrayList<>();
-        for (Plane p : l) {if (p instanceof PassengerPlane) {x.add((PassengerPlane) p);}}
-        return x;
+        List<? extends Plane> planes = this.planes;
+        List<PassengerPlane> passengerPlanes = new ArrayList<>();
+        for (Plane plane : planes) {
+            if (plane instanceof PassengerPlane) {
+                passengerPlanes.add((PassengerPlane) plane);
+            }
+        }
+        return passengerPlanes;
     }
 
-    // Error: Closing Brace Comments Example
     public List<MilitaryPlane> getMilitaryPlanes() {
         List<MilitaryPlane> militaryPlanes = new ArrayList<>();
         for (Plane plane : planes) {
             if (plane instanceof MilitaryPlane) {
                 militaryPlanes.add((MilitaryPlane) plane);
-            } //if
+            }
             else {
 
-            } // else
-        } //for
+            }
+        }
         return militaryPlanes;
     }
 
@@ -52,17 +48,9 @@ public class Airport {
                 planeWithMaxCapacity = passengerPlanes.get(i);
             }
         }
-        // Error: many blank lines
-
-
-
-
-
         return planeWithMaxCapacity;
     }
 
-    // Error: miss tab -> suggest
-    /*
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
         List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
         List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
@@ -73,19 +61,6 @@ public class Airport {
             }
         }
         return transportMilitaryPlanes;
-    }
-    */
-
-    public List<MilitaryPlane> getTransportMilitaryPlanes() {
-    List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
-    List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
-    for (int i = 0; i < militaryPlanes.size(); i++) {
-    MilitaryPlane plane = militaryPlanes.get(i);
-    if (plane.getType() == MilitaryType.TRANSPORT) {
-    transportMilitaryPlanes.add(plane);
-    }
-    }
-    return transportMilitaryPlanes;
     }
 
     public List<MilitaryPlane> getBomberMilitaryPlanes() {
@@ -98,7 +73,6 @@ public class Airport {
             }
         }
         return bomberMilitaryPlanes;
-
     }
 
     public List<ExperimentalPlane> getExperimentalPlanes() {
@@ -113,9 +87,8 @@ public class Airport {
 
     public Airport sortByMaxDistance() {
         Collections.sort(planes, new Comparator<Plane>() {
-            // Error: o1 and o2 no meaning -> suggest plane1, plan2
-            public int compare(Plane o1, Plane o2) {
-                return o1.Get_Max_Flight_Distance() - o2.Get_Max_Flight_Distance();
+            public int compare(Plane plane1, Plane plan2) {
+                return plane1.getMaxFlightDistance() - plan2.getMaxFlightDistance();
             }
         });
         return this;
@@ -128,8 +101,8 @@ public class Airport {
      */
     public Airport sortByMaxSpeed() {
         Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMS() - o2.getMS();
+            public int compare(Plane plane1, Plane plane2) {
+                return plane1.getMaxSpeed() - plane2.getMaxSpeed();
             }
         });
         return this;
@@ -137,8 +110,8 @@ public class Airport {
 
     public Airport sortByMaxLoadCapacity() {
         Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMinLoadCapacity() - o2.getMinLoadCapacity();
+            public int compare(Plane plane1, Plane plane2) {
+                return plane1.getMinLoadCapacity() - plane2.getMinLoadCapacity();
             }
         });
         return this;
@@ -163,7 +136,6 @@ public class Airport {
                 '}';
     }
 
-    //Constructor
     public Airport(List<? extends Plane> planes) {
         this.planes = planes;
     }

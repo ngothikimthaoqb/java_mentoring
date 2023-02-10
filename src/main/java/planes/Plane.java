@@ -19,20 +19,16 @@ abstract public class Plane {
         return model;
     }
 
-    // Error: getMS is unclear name -> suggest getMaxSpeed()
-    public int getMS() {
-        return maxSpeed;
+    public int getMaxSpeed() {
+        return this.maxSpeed;
     }
 
-    // Error: Methods should be verbs, in mixed case with the first letter lowercase -> suggest: getMaxFlightDistance()
-    public int Get_Max_Flight_Distance() {
+    public int getMaxFlightDistance() {
         return maxFlightDistance;
     }
 
     public int getMinLoadCapacity() {
-        // Error: result variable no need to declare -> Suggest: return  this.maxLoadCapacity;
-        int result = this.maxLoadCapacity;
-        return result;
+        return this.maxLoadCapacity;
     }
 
     @Override
@@ -45,12 +41,11 @@ abstract public class Plane {
                 '}';
     }
 
-    // Error: o is unclear -> suggest object
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Plane)) return false;
-        Plane plane = (Plane) o;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof Plane)) return false;
+        Plane plane = (Plane) object;
         return maxSpeed == plane.maxSpeed &&
                 maxFlightDistance == plane.maxFlightDistance &&
                 maxLoadCapacity == plane.maxLoadCapacity &&
