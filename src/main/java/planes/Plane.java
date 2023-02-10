@@ -1,4 +1,4 @@
-package Planes;
+package planes;
 
 import java.util.Objects;
 
@@ -19,15 +19,18 @@ abstract public class Plane {
         return model;
     }
 
+    // Error: getMS is unclear name -> suggest getMaxSpeed()
     public int getMS() {
         return maxSpeed;
     }
 
+    // Error: Methods should be verbs, in mixed case with the first letter lowercase -> suggest: getMaxFlightDistance()
     public int Get_Max_Flight_Distance() {
         return maxFlightDistance;
     }
 
     public int getMinLoadCapacity() {
+        // Error: result variable no need to declare -> Suggest: return  this.maxLoadCapacity;
         int result = this.maxLoadCapacity;
         return result;
     }
@@ -42,6 +45,7 @@ abstract public class Plane {
                 '}';
     }
 
+    // Error: o is unclear -> suggest object
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

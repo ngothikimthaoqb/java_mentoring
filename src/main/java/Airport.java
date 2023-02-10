@@ -1,27 +1,35 @@
-import Planes.experimentalPlane;
+import planes.ExperimentalPlane;
 import models.MilitaryType;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+import planes.MilitaryPlane;
+import planes.PassengerPlane;
+import planes.Plane;
 
 import java.util.*;
 
+// Need use this format for information description
+/**
+ * @author  Vitali Shulha
+ * @version version: 1.1
+ * @since   4-Jan-2019
+ */
 // version: 1.1
 // made by Vitali Shulha
 // 4-Jan-2019
 
 public class Airport {
     private List<? extends Plane> planes;
-
+    // Error: many blank lines
 
 
     public List<PassengerPlane> getPasPl() {
+        // Error: l, x, p are unclear, no meaning -> suggest: l(planes), x passengerPlanes, p plane
         List<? extends Plane> l = this.planes;
         List<PassengerPlane> x = new ArrayList<>();
         for (Plane p : l) {if (p instanceof PassengerPlane) {x.add((PassengerPlane) p);}}
         return x;
     }
 
+    // Error: Closing Brace Comments Example
     public List<MilitaryPlane> getMilitaryPlanes() {
         List<MilitaryPlane> militaryPlanes = new ArrayList<>();
         for (Plane plane : planes) {
@@ -35,6 +43,7 @@ public class Airport {
         return militaryPlanes;
     }
 
+
     public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
         List<PassengerPlane> passengerPlanes = getPasPl();
         PassengerPlane planeWithMaxCapacity = passengerPlanes.get(0);
@@ -43,7 +52,7 @@ public class Airport {
                 planeWithMaxCapacity = passengerPlanes.get(i);
             }
         }
-
+        // Error: many blank lines
 
 
 
@@ -51,6 +60,21 @@ public class Airport {
 
         return planeWithMaxCapacity;
     }
+
+    // Error: miss tab -> suggest
+    /*
+    public List<MilitaryPlane> getTransportMilitaryPlanes() {
+        List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
+        List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
+        for (int i = 0; i < militaryPlanes.size(); i++) {
+            MilitaryPlane plane = militaryPlanes.get(i);
+            if (plane.getType() == MilitaryType.TRANSPORT) {
+                transportMilitaryPlanes.add(plane);
+            }
+        }
+        return transportMilitaryPlanes;
+    }
+    */
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
     List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
@@ -77,18 +101,19 @@ public class Airport {
 
     }
 
-    public List<experimentalPlane> getExperimentalPlanes() {
-        List<experimentalPlane> experimentalPlanes = new ArrayList<>();
+    public List<ExperimentalPlane> getExperimentalPlanes() {
+        List<ExperimentalPlane> ExperimentalPlanes = new ArrayList<>();
         for (Plane plane : planes) {
-            if (plane instanceof experimentalPlane) {
-                experimentalPlanes.add((experimentalPlane) plane);
+            if (plane instanceof ExperimentalPlane) {
+                ExperimentalPlanes.add((ExperimentalPlane) plane);
             }
         }
-        return experimentalPlanes;
+        return ExperimentalPlanes;
     }
 
     public Airport sortByMaxDistance() {
         Collections.sort(planes, new Comparator<Plane>() {
+            // Error: o1 and o2 no meaning -> suggest plane1, plan2
             public int compare(Plane o1, Plane o2) {
                 return o1.Get_Max_Flight_Distance() - o2.Get_Max_Flight_Distance();
             }
