@@ -60,8 +60,8 @@ public class CalculatorTest {
 
     @Test
     public void testMulWithDoubleType() {
-        double mulActual = this.calculator.mult(7.0, 8.0);
-        Assert.assertEquals(mulActual, 56.0, "Mul test with double failed.");
+        double mulActual = this.calculator.mult(7.5, 8.3);
+        Assert.assertEquals(mulActual, 62.25, "Mul test with double failed.");
     }
 
     @Test
@@ -97,7 +97,7 @@ public class CalculatorTest {
     @Test
     public void testCos() {
         double cosActual = this.calculator.cos(3.0);
-        Assert.assertEquals(cosActual, 0.1411200080598672, "Cos test failed.");
+        Assert.assertEquals(cosActual, -0.9899924966004454, "Cos test failed.");
     }
 
     @Test
