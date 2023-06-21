@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Selenium demo" parallel = "classes" thread-count = "4">
+    <parameter name="pageUrl" value="https://formy-project.herokuapp.com/"/>
+    <parameter name="env" value="dev"/>
+
+    <test name="Run on CHROME">
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="app" value="C:\Users\Thao_Ngo\Downloads\Facebook_419.0.0.29.71_Apkpure.apk"/>
+        <parameter name="platformName" value="android"/>
+        <classes >
+            <class name="mobile.AppiumTest"></class>
+        </classes>
+    </test>
+
+</suite>

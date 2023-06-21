@@ -1,0 +1,3 @@
+Situation: It is an order service class that creates an order, makes the payment for the order, generates an invoice for the order and emails the invoice to the customer
+Reason: This class is not following the Single Responsibility Principle as there is more than one task in the class
+Solution: Create 4 classes for each functionality order creation, order payment, invoice generation & email of invoice

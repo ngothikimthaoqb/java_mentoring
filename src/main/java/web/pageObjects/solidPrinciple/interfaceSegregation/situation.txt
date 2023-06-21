@@ -1,0 +1,9 @@
+- Benefit:
+This principle states that the client should not be forced to depend on methods it will not use.
+This principle promotes the implementation of many small interfaces instead of one big interface as it
+will allow clients to select the required interfaces and implement the same.
+- Situation: We have payment interface with some method: MakePaymentByCash, MakePaymentByCreditCard, MakePaymentByBank..
+            We have 2 classes implement payment interface: OrderWithOnlinePayment, OrderWithCashPayment => we must implement all methods not use
+- Solution: Payment interface into two smaller interfaces for online & Offline (Cash) payment procedures.
+            As payment can be made online or offline.
+            Class handling offline payment will not require functions for online payment so it can be divided into 2 interfaces.
